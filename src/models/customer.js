@@ -7,7 +7,7 @@ const customerSchema = (sequelize, DataTypes) => sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    orderId: {
+    customerId: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },

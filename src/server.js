@@ -4,7 +4,6 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 // const logger = require('./middleware/logger');
-// const validator = require('./middleware/validator');
 const food = require('./routes/food');
 const clothes = require('./routes/clothes');
 // const send404 = require('./error-handlers/404');
