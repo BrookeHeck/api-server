@@ -7,11 +7,7 @@ const foodSchema = (sequelize, DataTypes) => sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    ingredients: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    calories: {
+    price: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },

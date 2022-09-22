@@ -1,17 +1,17 @@
 'use strict';
 
-const clothesSchema = (sequelize, DataTypes) => sequelize.define(
-  'Clothes',
+const customerSchema = (sequelize, DataTypes) => sequelize.define(
+  'Customers',
   {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    price: {
+    orderId: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
   },
 );
 
-module.exports = clothesSchema;
+module.exports = customerSchema;
