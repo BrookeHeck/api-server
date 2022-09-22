@@ -18,7 +18,7 @@ class Collection {
     } catch(e) {console.log(e);}
   }
 
-  async update(id, obj) {
+  async update(obj, id) {
     if(!id || !obj) throw new Error('No id or object provided to update method');
     try {
       await this.model.update(obj, { where: {id: id } });
@@ -29,8 +29,11 @@ class Collection {
   async delete(id) {
     if(!id) throw new Error('No id provided to delete method');
     try {
-      await this.model.findOne({ where: { id: id } });
-      return this.model.destroy({ where: { id: id } });
+      let record = await this.model.findOne({ where: { id: id } });
+      await this.model.destroy({ where: { id: id } });
+      return record;
     } catch(e) {console.log(e);}
   }
 }
+
+module.exports = Collection;

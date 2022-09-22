@@ -14,10 +14,17 @@ const FoodModel = foodSchema(sequelize, DataTypes);
 const ClothesModel = clothesSchema(sequelize, DataTypes);
 const CustomerModel = customerSchema(sequelize, DataTypes);
 
+// add association
+CustomerModel.hasMany(ClothesModel, {foreignKey: 'customerId', sourceKey: 'id'});
+ClothesModel.belongsTo(CustomerModel, {foreignKey: 'customerId', sourceKey: 'id'});
+
+CustomerModel.hasMany(FoodModel, {foreignKey: 'customerId', sourceKey: 'id'});
+FoodModel.belongsTo(CustomerModel, {foreignKey: 'customerId', sourceKey: 'id'});
+
 module.exports = {
   db: sequelize,
-  Food: Collection(FoodModel),
-  Clothes: Collection(ClothesModel),
-  Customer: Collection(CustomerModel),
+  Food: new Collection(FoodModel),
+  Clothes: new Collection(ClothesModel),
+  Customer: new Collection(CustomerModel),
 };
 
